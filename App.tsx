@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from 'react';
 import { Header } from './components/Header';
 import { InputPanel } from './components/InputPanel';
@@ -12,33 +11,23 @@ export default function App() {
   const [conditions, setConditions] = useState<string>('Room temperature and pressure');
   const [reactionResult, setReactionResult] = useState<ReactionResult | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
 
   const handleRunReaction = useCallback(async () => {
     if (reactants.length < 1) {
-      setError("Please add at least one reactant to start the reaction.");
       return;
     }
     setIsLoading(true);
-    setError(null);
     setReactionResult(null);
 
-    try {
-      const result = await performReaction(reactants, conditions);
-      setReactionResult(result);
-    } catch (e) {
-      console.error(e);
-      setError("An error occurred while simulating the reaction. Please check your API key and try again.");
-    } finally {
-      setIsLoading(false);
-    }
+    const result = await performReaction(reactants, conditions);
+    setReactionResult(result);
+    setIsLoading(false);
   }, [reactants, conditions]);
   
   const resetReaction = () => {
     setReactants([]);
     setConditions('Room temperature and pressure');
     setReactionResult(null);
-    setError(null);
     setIsLoading(false);
   }
 
@@ -62,7 +51,7 @@ export default function App() {
             <VisualizationPanel reactants={reactants} result={reactionResult} isLoading={isLoading}/>
           </div>
           <div className="xl:col-span-1">
-            <ResultsPanel result={reactionResult} isLoading={isLoading} error={error} />
+            <ResultsPanel result={reactionResult} isLoading={isLoading} />
           </div>
         </div>
       </main>

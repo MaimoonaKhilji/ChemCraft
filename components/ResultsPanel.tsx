@@ -1,12 +1,10 @@
-
 import React from 'react';
 import type { ReactionResult } from '../types';
-import { TestTube2Icon, BookOpenIcon, EyeIcon, TriangleAlertIcon, InfoIcon, XCircleIcon } from './icons';
+import { TestTube2Icon, BookOpenIcon, EyeIcon, TriangleAlertIcon, InfoIcon } from './icons';
 
 interface ResultsPanelProps {
   result: ReactionResult | null;
   isLoading: boolean;
-  error: string | null;
 }
 
 const InfoCard: React.FC<{ icon: React.ReactNode; title: string; children: React.ReactNode; }> = ({ icon, title, children }) => (
@@ -19,20 +17,10 @@ const InfoCard: React.FC<{ icon: React.ReactNode; title: string; children: React
   </div>
 );
 
-export const ResultsPanel: React.FC<ResultsPanelProps> = ({ result, isLoading, error }) => {
+export const ResultsPanel: React.FC<ResultsPanelProps> = ({ result, isLoading }) => {
   const renderContent = () => {
     if (isLoading) {
       return null; // Loading state is handled in VisualizationPanel
-    }
-
-    if (error) {
-       return (
-        <div className="text-center text-red-400 p-4 bg-red-900/30 rounded-lg animate-fade-in">
-          <XCircleIcon className="w-8 h-8 mx-auto mb-2" />
-          <h3 className="font-bold">Simulation Error</h3>
-          <p className="text-sm">{error}</p>
-        </div>
-      );
     }
 
     if (!result) {
