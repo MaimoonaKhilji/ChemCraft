@@ -1,0 +1,5 @@
+{
+  "name": "ChemCraft",
+  "description": "An interactive chemistry lab where students can perform chemical reactions and visually see how changing inputs affects the output. Powered by Gemini, this app helps visualize reactions for grades 10 and 12.",
+  "requestFramePermissions": []
+}
