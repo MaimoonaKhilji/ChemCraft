@@ -45,6 +45,7 @@ export const AVAILABLE_CHEMICALS: Chemical[] = [
   { name: "Hydrogen", formula: "H₂" },
   { name: "Oxygen", formula: "O₂" },
   { name: "Chlorine", formula: "Cl₂" },
+  { name: "Nitrogen", formula: "N₂" },
   { name: "Iodine", formula: "I₂" },
   { name: "Sulfur", formula: "S" },
   { name: "Carbon Dioxide", formula: "CO₂" },
@@ -52,4 +53,5 @@ export const AVAILABLE_CHEMICALS: Chemical[] = [
   // Simple Organic
   { name: "Methane", formula: "CH₄" },
   { name: "Ethanol", formula: "C₂H₅OH" },
+  { name: "Ethene", formula: "C₂H₄" },
 ];

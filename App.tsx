@@ -4,7 +4,7 @@ import { InputPanel } from './components/InputPanel';
 import { VisualizationPanel } from './components/VisualizationPanel';
 import { ResultsPanel } from './components/ResultsPanel';
 import type { ReactionResult, Reactant } from './types';
-import { performReaction } from './services/geminiService';
+import { performReaction } from './services/reactionService';
 
 export default function App() {
   const [reactants, setReactants] = useState<Reactant[]>([]);
